@@ -17,6 +17,7 @@ jobs:
         run: npm install
       - name: Generate UI Bundle
         run: node_modules/.bin/gulp bundle
+        uses: actions/upload-artifact@v3
         with:
           name: ui-bundle
           path: output/ui-bundle.zip
