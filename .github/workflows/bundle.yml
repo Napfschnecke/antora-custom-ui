@@ -1,4 +1,4 @@
-name: Zip UI Bundle
+name: Zip UI Bundle with Gulp
 on:
   push:
     branches: [master]
