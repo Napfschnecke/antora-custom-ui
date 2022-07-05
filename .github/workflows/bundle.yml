@@ -4,7 +4,7 @@ on:
     branches: [master]
   workflow_dispatch:
 jobs:
-  deploy:
+  bundle:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -21,4 +21,14 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ui-bundle
-          path: build/ui-bundle.zip
+          path: build/ui-bundle
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            build/ui-bundle
