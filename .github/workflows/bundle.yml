@@ -3,6 +3,7 @@ on:
   push:
     branches: [master]
   workflow_dispatch:
+  repository_dispatch:
 jobs:
   bundle:
     runs-on: ubuntu-latest
@@ -29,7 +30,7 @@ jobs:
       - name: Trigger Pages Workflow
         run: |
           curl --request POST 'https://api.github.com/repos/Napfschnecke/inspectit-ocelot/actions/workflows/publish.yml/dispatches' \
-          --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          --header 'Authorization: Bearer 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' \
           --header 'Content-Type: application/json'  \
           --data-raw '{
             "ref":"concept/ascii-ssg-pages"
