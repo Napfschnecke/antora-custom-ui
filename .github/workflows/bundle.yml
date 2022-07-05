@@ -25,9 +25,9 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.tag.outputs.release_tag }}
-          files: build/ui-bundle
+          files: build/ui-bundle.zip
       - name: Upload bundled UI as zip
         uses: actions/upload-artifact@v3
         with:
           name: ui-bundle
-          path: build/ui-bundle
+          path: build/ui-bundle.zip
