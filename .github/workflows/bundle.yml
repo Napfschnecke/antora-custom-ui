@@ -28,11 +28,9 @@ jobs:
           files: build/ui-bundle.zip
       - name: Trigger Pages Workflow
         run: |
-          curl --request POST \
-          --url https://api.github.com/repos/Napfschnecke/inspectit-ocelot/actions/workflows/publish.yml/dispatches \
-          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}'
-          --header 'accept: */*' \
-          --header 'content-Type: application/json'  \
-          --data '{
+          curl --request POST 'https://api.github.com/repos/Napfschnecke/inspectit-ocelot/actions/workflows/publish.yml/dispatches' \
+          --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          --header 'Content-Type: application/json'  \
+          --data-raw '{
             "ref":"concept/ascii-ssg-pages"
             }'
